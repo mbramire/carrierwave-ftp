@@ -48,6 +48,7 @@ module CarrierWave
             end
           end
           temp_file.rewind
+          temp_file.close
           temp_file
         end
 

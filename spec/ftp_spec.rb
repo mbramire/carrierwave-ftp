@@ -109,7 +109,7 @@ describe CarrierWave::Storage::FTP do
 
     it 'returns provided content type' do
       @stored.content_type = 'some/type'
-      @stored.content_type == 'some/type'
+      @stored.content_type.should == 'some/type'
     end
 
     it 'returns empty string if content_type is not provided' do

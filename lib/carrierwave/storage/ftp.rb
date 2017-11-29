@@ -69,13 +69,14 @@ module CarrierWave
 
         def read
           file = to_file
+          file.open if file.closed?
           content = file.read
           file.close
           content
         end
 
         def content_type
-          @content_type || file.content_type
+          @content_type || ''
         end
 
         def content_type=(new_content_type)

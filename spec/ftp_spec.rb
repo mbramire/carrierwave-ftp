@@ -107,9 +107,13 @@ describe CarrierWave::Storage::FTP do
       @stored.read.should == 'some content'
     end
 
-    it "returns the content_type of the file" do
-      @stored.should_receive(:file).and_return(Struct.new(:content_type).new('some/type'))
-      @stored.content_type.should == 'some/type'
+    it 'returns provided content type' do
+      @stored.content_type = 'some/type'
+      @stored.content_type == 'some/type'
+    end
+
+    it 'returns empty string if content_type is not provided' do
+      @stored.content_type.should == ''
     end
   end
 end

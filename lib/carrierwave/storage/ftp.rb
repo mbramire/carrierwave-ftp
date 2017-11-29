@@ -69,6 +69,7 @@ module CarrierWave
 
         def read
           file = to_file
+          file.open if file.closed?
           content = file.read
           file.close
           content
